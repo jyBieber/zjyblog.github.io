@@ -22,10 +22,10 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/school)
 
 **界面截图**：  
-![管理员首页](https://zjylblog.github.io/img/school/admin.png)  
-![任务界面](https://zjylblog.github.io/img/school/list.png)  
-![接单界面](https://zjylblog.github.io/img/school/errandslist.png)  
-![登录页](https://zjylblog.github.io/img/school/login.png)
+![管理员首页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png)  
+![任务界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png)  
+![接单界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png)  
+![登录页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png)
 
 > 该项目完整实现了从下单到配送的业务闭环，锻炼了复杂业务逻辑设计与数据库事务处理能力。
 
