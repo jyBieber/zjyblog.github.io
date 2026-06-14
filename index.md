@@ -47,8 +47,8 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/Swimming)
 
 **界面截图**：  
-![用户界面](https://zjylblog.github.io/img/swin/user.png)  
-![登录界面](https://zjylblog.github.io/img/swin/login.png)  
-![首页](https://zjylblog.github.io/img/swin/home.png)
+![用户界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/user.png)  
+![登录界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/login.png) 
+![首页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/home.png)
 
 > 该项目强化了对 MyBatis 动态 SQL、SpringMVC 拦截器以及前端交互的实践，是一个完整的“增删改查+”企业级案例。
