@@ -22,7 +22,7 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/school)
 
 **界面截图**：  
-![管理员首页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png)  
+![管理员首页](/img/school/admin.png)  
 ![任务界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png)  
 ![接单界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png)  
 ![登录页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png)
