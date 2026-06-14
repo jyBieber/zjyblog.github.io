@@ -23,9 +23,9 @@
 
 **界面截图**：  
 ![管理员首页](/img/school/admin.png)  
-![任务界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png)  
-![接单界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png)  
-![登录页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png)
+![任务界面](/img/school/list.png)  
+![接单界面](/img/school/errandslist.png)  
+![登录页](/img/school/login.png)
 
 > 该项目完整实现了从下单到配送的业务闭环，锻炼了复杂业务逻辑设计与数据库事务处理能力。
 
@@ -47,8 +47,8 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/Swimming)
 
 **界面截图**：  
-![用户界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/user.png)  
-![登录界面](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/login.png) 
-![首页](https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/home.png)
+![用户界面](/img/swin/user.png)  
+![登录界面](/img/swin/login.png) 
+![首页](/img/swin/home.png)
 
 > 该项目强化了对 MyBatis 动态 SQL、SpringMVC 拦截器以及前端交互的实践，是一个完整的“增删改查+”企业级案例。
