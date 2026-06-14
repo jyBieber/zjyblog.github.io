@@ -22,8 +22,9 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/school)
 
 **界面截图**：  
-![管理员首页](https://zjylblog.github.io/img/school/0%E7%AE%A1%E7%90%86%E5%91%98%E9%A6%96%E9%A1%B5.png)  
-![任务界面](https://zjylblog.github.io/img/school/3%E4%BB%BB%E5%8A%A11.png)  
+![管理员首页](https://zjylblog.github.io/img/school/admin.png)  
+![任务界面](https://zjylblog.github.io/img/school/list.png)  
+![接单界面](https://zjylblog.github.io/img/school/errandslist.png)  
 ![登录页](https://zjylblog.github.io/img/school/login.png)
 
 > 该项目完整实现了从下单到配送的业务闭环，锻炼了复杂业务逻辑设计与数据库事务处理能力。
@@ -46,8 +47,8 @@
 - **项目地址**：[GitHub 仓库](https://github.com/jyBieber/Swimming)
 
 **界面截图**：  
-![用户界面](https://zjylblog.github.io/img/swin/%E7%94%A8%E6%88%B7.png)  
-![登录界面](https://zjylblog.github.io/img/swin/%E7%99%BB%E5%BD%95.png)  
-![首页](https://zjylblog.github.io/img/swin/%E9%A6%96%E9%A1%B5.png)
+![用户界面](https://zjylblog.github.io/img/swin/user.png)  
+![登录界面](https://zjylblog.github.io/img/swin/login.png)  
+![首页](https://zjylblog.github.io/img/swin/home.png)
 
 > 该项目强化了对 MyBatis 动态 SQL、SpringMVC 拦截器以及前端交互的实践，是一个完整的“增删改查+”企业级案例。
