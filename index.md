@@ -5,24 +5,39 @@
 
 ## 作品展示
 
-### 1. 响应式电商网站
-- **技术栈**：React, Node.js, MongoDB  
-- **描述**：一个完整的购物车系统，支持用户认证、商品筛选与支付集成。  
-- [查看演示](https://example.com) | [GitHub 仓库](https://github.com/example)
+## 个人项目
 
-### 2. 移动端天气应用
-- **技术栈**：Flutter, OpenWeatherMap API  
-- **描述**：实时显示天气与7天预报，支持城市搜索与深色模式。  
+### 1. 校园外卖跑腿系统
+一个面向高校场景的外卖及跑腿服务平台，支持学生点餐、骑手接单、商家及后台管理。
 
-![天气应用截图](https://via.placeholder.com/300x200?text=Weather+App)
+- **技术栈**：SSM (Spring + SpringMVC + MyBatis), MySQL, Bootstrap, ECharts
+- **核心功能**：
+  - 用户端：浏览商家、下单、追踪订单状态
+  - 骑手端：抢单/派单、更新配送状态
+  - 管理端：订单统计、用户管理、收益分析 (ECharts 图表)
+- **主要工作**：
+  - 设计订单状态机，使用乐观锁防止超卖与重复接单
+  - 基于 Spring 定时任务自动处理超时订单
+  - 采用 AOP 实现全局日志记录与性能监控
+- **项目地址**：[GitHub 仓库](https://github.com/jyBieber/school)
 
-### 3. 数据可视化看板
-- **技术栈**：Vue.js, D3.js, Express  
-- **描述**：动态展示销售数据的折线图和热力图，支持日期范围筛选。  
+> 该项目完整实现了从下单到配送的业务闭环，锻炼了复杂业务逻辑设计与数据库事务处理能力。
 
-```javascript
-// 示例代码：D3 绘制简单折线图
-const svg = d3.select("#chart")
-  .append("svg")
-  .attr("width", 400)
-  .attr("height", 200);
+---
+
+### 2. 游泳馆会员管理系统
+为线下游泳馆开发的会员管理平台，提升会员办卡、消费与统计的效率。
+
+- **技术栈**：SSM (Spring + SpringMVC + MyBatis), MySQL, Bootstrap, AJAX
+- **核心功能**：
+  - 会员管理：办卡、续费、签到、消费记录
+  - 卡类型管理：支持多种卡种与折扣规则
+  - 数据统计：会员增长、收入报表、到期提醒
+- **主要工作**：
+  - 独立完成数据库设计与索引优化
+  - 实现分页搜索、Excel 导出功能
+  - 使用拦截器实现登录验证与权限控制
+  - 基于 AJAX 实现无刷新签到与余额更新
+- **项目地址**：[GitHub 仓库](https://github.com/jyBieber/Swimming)
+
+> 该项目强化了对 MyBatis 动态 SQL、SpringMVC 拦截器以及前端交互的实践，是一个完整的“增删改查+”企业级案例。
