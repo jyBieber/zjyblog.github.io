@@ -25,6 +25,27 @@
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
             overflow: hidden;
         }
+        /* ---------- 页面顶部标题 ---------- */
+        .page-header {
+            padding: 1.5rem 2rem 0.5rem 2rem;
+            border-bottom: 1px solid #eef2f6;
+            background: #ffffff;
+        }
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        @media (max-width: 700px) {
+            .page-header {
+                padding: 1rem 1.5rem 0.5rem 1.5rem;
+            }
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+        }
         .tabs {
             display: flex;
             background: #f8fafc;
