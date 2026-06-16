@@ -298,41 +298,45 @@
     <!-- Java 项目 Tab -->
     <div id="java" class="tab-pane active">
         <!-- 校园外卖跑腿系统 -->
-        <div class="project">
+        <div class="project" style="display: flex; gap: 2rem; align-items: flex-start;">
             <h2>🍱 校园外卖跑腿系统</h2>
-            <div class="tech-stack">
-                <span class="tech-badge">SSM</span>
-                <span class="tech-badge">MySQL</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">ECharts</span>
-            </div>
-            <p>面向高校场景的外卖及跑腿服务平台，支持学生点餐、骑手接单、商家及后台管理。</p>
-            <ul class="feature-list">
-                <li><strong>用户端</strong>：浏览商家、下单、追踪订单状态</li>
-                <li><strong>骑手端</strong>：抢单/派单、更新配送状态</li>
-                <li><strong>管理端</strong>：订单统计、用户管理、收益分析 (ECharts 图表)</li>
-            </ul>
-            <div class="feature-list">
-                <strong>🔧 主要工作</strong>
-                <ul>
-                    <li>设计订单状态机，使用乐观锁防止超卖与重复接单</li>
-                    <li>基于 Spring 定时任务自动处理超时订单</li>
-                    <li>采用 AOP 实现全局日志记录与性能监控</li>
-                </ul>
-            </div>
-            <!-- 轮播容器 -->
-            <div class="carousel" data-images='[
-                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png",
-                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png",
-                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png",
-                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png"
-            ]'>
-                <div class="carousel-inner">
-                    <img src="" alt="轮播图片">
+            <div style="flex: 1;">
+                <div class="tech-stack">
+                    <span class="tech-badge">SSM</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">ECharts</span>
                 </div>
-                <button class="carousel-btn prev">‹</button>
-                <button class="carousel-btn next">›</button>
-                <div class="carousel-indicators"></div>
+                <p>面向高校场景的外卖及跑腿服务平台，支持学生点餐、骑手接单、商家及后台管理。</p>
+                <ul class="feature-list">
+                    <li><strong>用户端</strong>：浏览商家、下单、追踪订单状态</li>
+                    <li><strong>骑手端</strong>：抢单/派单、更新配送状态</li>
+                    <li><strong>管理端</strong>：订单统计、用户管理、收益分析 (ECharts 图表)</li>
+                </ul>
+                <div class="feature-list">
+                    <strong>🔧 主要工作</strong>
+                    <ul>
+                        <li>设计订单状态机，使用乐观锁防止超卖与重复接单</li>
+                        <li>基于 Spring 定时任务自动处理超时订单</li>
+                        <li>采用 AOP 实现全局日志记录与性能监控</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="flex: 2;">
+            <!-- 轮播容器 -->
+                <div class="carousel" data-images='[
+                    "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png",
+                    "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png",
+                    "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png",
+                    "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png"
+                ]'>
+                    <div class="carousel-inner">
+                        <img src="" alt="轮播图片">
+                    </div>
+                    <button class="carousel-btn prev">‹</button>
+                    <button class="carousel-btn next">›</button>
+                    <div class="carousel-indicators"></div>
+                </div>
             </div>
             <a href="https://github.com/jyBieber/school" class="btn-link" target="_blank">📦 GitHub 仓库 →</a>
         </div>
