@@ -25,7 +25,6 @@
             box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        /* Tab 导航栏 */
         .tabs {
             display: flex;
             background: #f8fafc;
@@ -53,7 +52,6 @@
             color: #2563eb;
             border-bottom-color: #2563eb;
         }
-        /* Tab 内容面板 */
         .tab-pane {
             display: none;
             padding: 2rem 2rem 2.5rem;
@@ -66,7 +64,6 @@
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* 项目卡片样式 */
         .project {
             background: #ffffff;
             border: 1px solid #eef2f6;
@@ -109,19 +106,77 @@
         .feature-list li {
             margin: 0.4rem 0;
         }
-        .screenshot-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1.5rem 0;
+        /* ---------- 轮播样式 ---------- */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: #f8fafc;
         }
-        .screenshot-grid img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 比例，可根据需要调整 */
+            background: #eef2f6;
+        }
+        .carousel-inner img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 保持比例，完整显示 */
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.8rem 1rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 30px;
+            transition: background 0.2s;
+            line-height: 1;
+            user-select: none;
+        }
+        .carousel-btn:hover {
+            background: rgba(0,0,0,0.7);
+        }
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        .carousel-btn.next {
+            right: 10px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 0;
             background: #fff;
+        }
+        .carousel-indicators span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .carousel-indicators span.active {
+            background: #2563eb;
+            transform: scale(1.2);
         }
         .btn-link {
             display: inline-block;
@@ -144,11 +199,66 @@
             height: 1px;
             background: #e2e8f0;
         }
+        /* ---------- 模态框 ---------- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 2rem;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            display: block;
+        }
+        .modal-close {
+            align-self: flex-end;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.4rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+        .modal-close:hover {
+            background: #dc2626;
+        }
         @media (max-width: 700px) {
             body { padding: 1rem; }
             .tabs { padding: 0 0.5rem; }
             .tab-btn { padding: 0.8rem 1rem; font-size: 1rem; }
             .tab-pane { padding: 1.5rem; }
+            .carousel { max-width: 100%; }
+            .carousel-btn { padding: 0.5rem 0.7rem; font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -185,24 +295,22 @@
                     <li>采用 AOP 实现全局日志记录与性能监控</li>
                 </ul>
             </div>
-            <!-- 横向滚动缩略图 -->
-            <div class="scroll-container" id="scroll-school">
-                <div class="thumb-item" data-src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png">
-                    <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png" alt="管理员首页" loading="lazy">
+            <!-- 轮播容器 -->
+            <div class="carousel" data-images='[
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/admin.png",
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png",
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png",
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png"
+            ]'>
+                <div class="carousel-inner">
+                    <img src="" alt="轮播图片">
                 </div>
-                <div class="thumb-item" data-src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png">
-                    <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/list.png" alt="任务列表" loading="lazy">
-                </div>
-                <div class="thumb-item" data-src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png">
-                    <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/errandslist.png" alt="接单界面" loading="lazy">
-                </div>
-                <div class="thumb-item" data-src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png">
-                    <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/school/login.png" alt="登录页" loading="lazy">
-                </div>
+                <button class="carousel-btn prev">‹</button>
+                <button class="carousel-btn next">›</button>
+                <div class="carousel-indicators"></div>
             </div>
             <a href="https://github.com/jyBieber/school" class="btn-link" target="_blank">📦 GitHub 仓库 →</a>
         </div>
-
 
         <!-- 游泳馆会员管理系统 -->
         <div class="project">
@@ -228,16 +336,24 @@
                     <li>基于 AJAX 实现无刷新签到与余额更新</li>
                 </ul>
             </div>
-            <div class="screenshot-grid">
-                <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/user.png" alt="用户界面" width="250" loading="lazy">
-                <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/login.png" alt="登录界面" width="250" loading="lazy">
-                <img src="https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/home.png" alt="首页" width="250" loading="lazy">
+            <!-- 轮播容器 -->
+            <div class="carousel" data-images='[
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/user.png",
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/login.png",
+                "https://raw.githubusercontent.com/jyBieber/zjyblog.github.io/main/img/swin/home.png"
+            ]'>
+                <div class="carousel-inner">
+                    <img src="" alt="轮播图片">
+                </div>
+                <button class="carousel-btn prev">‹</button>
+                <button class="carousel-btn next">›</button>
+                <div class="carousel-indicators"></div>
             </div>
             <a href="https://github.com/jyBieber/Swimming" class="btn-link" target="_blank">📦 GitHub 仓库 →</a>
         </div>
     </div>
 
-    <!-- AI 项目 Tab (待补充) -->
+    <!-- AI 项目 Tab -->
     <div id="ai" class="tab-pane">
         <div class="project">
             <h2>🤖 AI 项目（筹备中）</h2>
@@ -298,42 +414,144 @@
     </div>
 </div>
 
+<!-- 模态框 -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <button class="modal-close" id="modalCloseBtn">✕ 关闭</button>
+        <img id="modalImage" src="" alt="放大预览">
+    </div>
+</div>
+
 <script>
-    // Tab 切换逻辑
+    // ---------- 模态框逻辑 ----------
+    const overlay = document.getElementById('modalOverlay');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('modalCloseBtn');
+
+    function openModal(src) {
+        modalImg.src = src;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+    });
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+
+    // ---------- 轮播初始化 ----------
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        // 解析图片数据
+        let images = [];
+        try {
+            images = JSON.parse(carousel.dataset.images);
+        } catch(e) { return; }
+        if (!images.length) return;
+
+        let current = 0;
+        const imgElem = carousel.querySelector('.carousel-inner img');
+        const indicators = carousel.querySelector('.carousel-indicators');
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+
+        // 创建指示点
+        indicators.innerHTML = '';
+        images.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.dataset.index = i;
+            dot.addEventListener('click', () => goTo(i));
+            indicators.appendChild(dot);
+        });
+
+        function updateCarousel() {
+            imgElem.src = images[current];
+            // 更新指示点
+            indicators.querySelectorAll('span').forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+        }
+
+        function goTo(index) {
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
+            current = index;
+            updateCarousel();
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        // 事件绑定
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prev();
+            resetAutoPlay();
+        });
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            next();
+            resetAutoPlay();
+        });
+
+        // 点击图片打开模态框（使用当前显示的图片）
+        imgElem.addEventListener('click', () => {
+            if (imgElem.src) openModal(imgElem.src);
+        });
+
+        // 自动播放
+        let autoTimer = setInterval(next, 3000);
+        function resetAutoPlay() {
+            clearInterval(autoTimer);
+            autoTimer = setInterval(next, 3000);
+        }
+
+        // 鼠标悬停暂停自动播放
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoTimer);
+        });
+        carousel.addEventListener('mouseleave', () => {
+            autoTimer = setInterval(next, 3000);
+        });
+
+        // 初始化显示第一张
+        updateCarousel();
+    });
+
+    // ---------- Tab 切换 ----------
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
     function switchTab(tabId) {
-        // 隐藏所有面板
         tabPanes.forEach(pane => pane.classList.remove('active'));
-        // 显示选中面板
         const activePane = document.getElementById(tabId);
         if (activePane) activePane.classList.add('active');
-        // 更新按钮样式
         tabBtns.forEach(btn => {
-            if (btn.getAttribute('data-tab') === tabId) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+            btn.classList.toggle('active', btn.dataset.tab === tabId);
         });
     }
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const tabId = btn.getAttribute('data-tab');
+            const tabId = btn.dataset.tab;
             switchTab(tabId);
-            // 可选：更新 URL hash 以支持刷新后保持标签
             window.location.hash = tabId;
         });
     });
 
-    // 若 URL 中有 hash，则根据 hash 显示对应 tab
     if (window.location.hash) {
         const hash = window.location.hash.substring(1);
-        if (['java', 'ai', 'tech'].includes(hash)) {
-            switchTab(hash);
-        }
+        if (['java', 'ai', 'tech'].includes(hash)) switchTab(hash);
     }
 </script>
 </body>
